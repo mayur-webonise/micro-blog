@@ -1,11 +1,10 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: %i[show edit update destroy]
   def index
     @post=Post.all
   end
 
-  def show
-    @post = Post.friendly.find(params[:id])
-    
+  def show; 
   end
 
   def new
@@ -22,13 +21,10 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-    @post = Post.find(params[:id])
+  def edit;
   end
 
   def update
-    @post = Post.find(params[:id])
-
     if @post.update(post_params)
       redirect_to @post
     else
@@ -37,22 +33,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
 
     redirect_to root_path, status: :see_other
   end
 
-  private
-    def post_params
-      params.require(:post).permit(:title, :content)
-    end
-
-    def mark_notifications_as_read
-      if current_user
-        notifications_to_mark_as_read = @post-notification_as_post.where(recipient: current_user)
-        notifications_to_mark_as_read.update_all(read_at: Time.zone.now)
-      end
-    end
+  def set_post
+    @post = Post.friendly.find(params[:id])
+  end
 end
 
