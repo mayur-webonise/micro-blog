@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     @post=Post.all
   end
 
-  def show; 
+  def show
   end
 
   def new
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit;
+  def edit
   end
 
   def update
