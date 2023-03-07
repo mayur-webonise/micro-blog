@@ -38,8 +38,14 @@ class PostsController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
+  private
+  
   def set_post
     @post = Post.friendly.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :content)
   end
 end
 
