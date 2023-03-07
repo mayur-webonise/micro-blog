@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :posts
   # Defines the root path route ("/")
   # root "articles#index"
+  put '/status_published', to: 'posts#status_published'
 end

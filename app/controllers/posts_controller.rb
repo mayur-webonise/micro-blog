@@ -38,8 +38,16 @@ class PostsController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
+  def status_published
+    puts "here clicked"
+    puts "#{@post}"
+    puts "========================================="
+    @post = Post.friendly.find(params[:id])
+    @post.update(is_published: !i.is_published) 
+  end
+
   private
-  
+
   def set_post
     @post = Post.friendly.find(params[:id])
   end

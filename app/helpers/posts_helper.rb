@@ -4,7 +4,7 @@ module PostsHelper
     if published 
       return "Published"
     else
-      return "NOt Published"
+      return "Not Published"
     end
   end
 end
