@@ -4,9 +4,11 @@
   <% @post.each do |i| %>
     <li>
     <%= link_to i.title, i %>
-    <%= button_to published_text(i.is_published), status_published_path(i)%>
+   
     
     </li>
   <% end %>
 </ul>
+<%=current_user%>
 <%= link_to "New Post", new_post_path %>
+

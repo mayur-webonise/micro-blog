@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   extend FriendlyId 
   has_many :comments
-  belongs_to : auther
+  belongs_to :auther
 
   validates :title, presence: true
   validates :content, presence: true, length: { minimum: 2 }
@@ -9,5 +9,9 @@ class Post < ApplicationRecord
 
   def should_generate_new_friendly_id?
     title_changed? || slug.blank?
+  end
+
+  def self.sorted_posts
+    Post.all.sort_by(&:title)
   end
 end
