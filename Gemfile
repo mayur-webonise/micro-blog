@@ -9,6 +9,12 @@ gem "rails", "~> 7.0.2"
 
 
 gem 'devise', '~> 4.9'
+gem 'rspec-rails'
+
+gem "factory_bot_rails"
+
+gem 'simplecov', '~> 0.22.0'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -47,8 +53,6 @@ gem "bootsnap", require: false
 
 # Use Sass to process CSS
 # gem "sassc-rails"
-
-gem 'friendly_id', '~> 5.4.0'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
